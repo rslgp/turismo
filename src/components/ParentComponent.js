@@ -2,41 +2,63 @@
 import React, { useState } from 'react';
 import ChildComponent from './ChildComponent';
 import Card from './Card'
+import PostCard from './PostCard/PostCard'
 
 const ParentComponent = () => {
   const [inputValue, setInputValue] = useState('');
+  const [inputValue2, setInputValue2] = useState('');
   const [children, setChildren] = useState([]);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
+  const handleInputChange2 = (event) => {
+    setInputValue2(event.target.value);
+  };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevents form submission
-      setChildren([...children, inputValue]);
+      setChildren([...children, {titulo:inputValue, descricao:inputValue2}]);
       setInputValue('');
     }
   };
 
   return (
     <div>
-        
+        <input
+            type="text"
+            value={inputValue}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            placeholder='Titulo'
+        />
+        <input
+            type="text"
+            value={inputValue2}
+            onChange={handleInputChange2}
+            onKeyDown={handleKeyDown}
+            placeholder='descricao'
+        />
+
     {children.map((childValue, index) => (
         
       <>
-      <Card nome={childValue}/>
-      <ChildComponent key={index} value={childValue} />
+       {/* 
+       <Card nome={childValue.titulo}/>
+     
+       <ChildComponent key={index} value={childValue.titulo} />
+    */}
+      <PostCard
+        avatar="https://sandstormit.com/wp-content/uploads/2021/06/incognito-2231825_960_720-1.png"
+        username={childValue.titulo}
+        content={childValue.descricao}
+      />
       </>
       
     ))}
 
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-      />
+      
     </div>
   );
 };
