@@ -1,0 +1,13 @@
+/* StarSuggestion.css */
+.star-suggestion {
+  text-align: center;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.filled {
+  color: gold;
+}

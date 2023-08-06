@@ -1,7 +1,5 @@
 // ParentComponent.js
 import React, { useState } from 'react';
-import ChildComponent from './ChildComponent';
-import Card from './Card'
 import PostCard from './PostCard/PostCard'
 
 const ParentComponent = () => {
@@ -44,15 +42,11 @@ const ParentComponent = () => {
     {children.map((childValue, index) => (
         
       <>
-       {/* 
-       <Card nome={childValue.titulo}/>
-     
-       <ChildComponent key={index} value={childValue.titulo} />
-    */}
       <PostCard
         avatar="https://sandstormit.com/wp-content/uploads/2021/06/incognito-2231825_960_720-1.png"
         username={childValue.titulo}
         content={childValue.descricao}
+        rating={childValue.rating ? childValue.rating : 0}
       />
       </>
       

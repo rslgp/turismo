@@ -1,16 +1,27 @@
 // PostCard.js
 import React from 'react';
 import './PostCard.css';
+import StarSuggestion from '../5Star/StarSuggestion';
 
-const PostCard = ({ avatar, username, content }) => {
+const PostCard = (props) => {
   return (
     <div className="post-card">
       <div className="avatar">
-        <img src={avatar} alt="User Avatar" />
+        <img src={props.avatar} alt="User Avatar" />
       </div>
       <div className="post-content">
-        <h3>{username}</h3>
-        <p>{content}</p>
+        <h3>{props.username}</h3>
+        <table>
+          <tr>
+          <td>
+            <StarSuggestion rating={4}/>
+              {props.ratingCount}
+          </td>
+          <td>
+            <StarSuggestion msg={"Avaliar: "}/></td>
+          </tr>
+        </table>
+        <p>{props.rating}</p>
       </div>
     </div>
   );
