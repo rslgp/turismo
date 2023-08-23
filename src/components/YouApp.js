@@ -1,10 +1,12 @@
 // YourApp.js
 import React from 'react';
 import PostCard from './PostCard/PostCard';
+import LikeDislikeSystem from './LikeSystem/LikeSystem';
 
 const YourApp = () => {
   return (
     <div>
+      <LikeDislikeSystem></LikeDislikeSystem>
       <PostCard
         avatar="https://sandstormit.com/wp-content/uploads/2021/06/incognito-2231825_960_720-1.png"
         username="JohnDoe"

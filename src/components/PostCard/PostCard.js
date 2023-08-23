@@ -2,6 +2,7 @@
 import React from 'react';
 import './PostCard.css';
 import StarSuggestion from '../5Star/StarSuggestion';
+import LikeSystem from '../LikeSystem/LikeSystem';
 
 const PostCard = (props) => {
   return (
@@ -10,8 +11,15 @@ const PostCard = (props) => {
         <img src={props.avatar} alt="User Avatar" />
       </div>
       <div className="post-content">
-        <h3>{props.username}</h3>
         <table>
+          <tr>
+            <td>
+             <h3>{props.username}</h3>
+            </td>
+            <td>
+             <LikeSystem/>
+            </td>
+          </tr>
           <tr>
           <td>
             <StarSuggestion rating={4}/>
